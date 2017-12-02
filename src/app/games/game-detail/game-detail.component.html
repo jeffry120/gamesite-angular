@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ game.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="game.imagePath"
+      alt="{{ game.name }}"
+      class="img-responsive"
+      style="max-height: 300px;">
+  </div>
+</div>
+
+<div class="row" >
+  <div class="col-xs-12">
+    <hr>
+    <p>{{game.description}}</p>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="col-xs-12">
+    <button class="btn btn-primary" routerLink="/advanced/{{id}}">Advance details...</button>
+  </div>
+</div>

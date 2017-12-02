@@ -1,0 +1,34 @@
+import {Component, OnInit} from '@angular/core';
+import {Game} from '../game.model';
+import {GameService} from '../game.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+
+@Component({
+  selector: 'app-game-detail',
+  templateUrl: './game-detail.component.html',
+  styleUrls: ['./game-detail.component.css']
+})
+export class GameDetailComponent implements OnInit {
+  game: Game = new Game({name: 'loading', imagePath: ''});
+  id: string;
+
+  constructor(private gameService: GameService,
+              private route: ActivatedRoute,
+              private router: Router) {
+  }
+
+  ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+          this.gameService.getGame(this.id).then(res => {
+            this.game = res[0];
+          });
+        }
+      );
+  }
+
+
+
+}
