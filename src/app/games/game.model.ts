@@ -1,10 +1,11 @@
 export class Game {
   private id: string;
   private _name: string;
+  private _characters: string;
   private _description: string;
   private _imagepath: string;
   // private creators
-  // private characters
+
 
 
   constructor(values: object = {}) {
@@ -17,6 +18,14 @@ export class Game {
 
   public set _id(n: string) {
     this.id = n;
+  }
+
+  public get characters() {
+    return this._characters;
+  }
+
+  public set characters(n: string) {
+    this._characters = n;
   }
 
   public get name() {
