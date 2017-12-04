@@ -4,7 +4,7 @@ export class Game {
   private _characters: [object];
   private _description: string;
   private _imagepath: string;
-  // private creators
+  private _creators: string;
 
 
 
@@ -34,6 +34,14 @@ export class Game {
 
   public set name(n: string) {
     this._name = n;
+  }
+
+  public get creators() {
+    return this._creators;
+  }
+
+  public set creators(n: string) {
+    this._creators = n;
   }
 
   public get description() {

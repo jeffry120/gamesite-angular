@@ -23,6 +23,8 @@
     </div>
     <div class="row" >
       <div class="col-xs-12">
+        <hr>
+        <p>Creator: {{game.creators}}</p>
       </div>
     </div>
   </div>
@@ -33,15 +35,16 @@
     <app-character-item
       *ngFor="let characterEL of game.characters"
       [character]="characterEL"
+
       (characterSelected)="onGameSelected(characterEL)">
     </app-character-item>
   </div>
   <div class="col-md-6">
     <app-character-detail
-      *ngIf="character; else infoText"
+      *ngIf="character; else info"
       [character]="character"></app-character-detail>
-    <ng-template #infoText>
-      <p>Select an character</p>
+    <ng-template #info>
+      <p>Select an character for more information</p>
     </ng-template>
   </div>
 
