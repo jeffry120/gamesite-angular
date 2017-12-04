@@ -31,7 +31,10 @@ export class GameListComponent implements OnInit, OnDestroy {
     this.gameService.getGames().then(res => {
       this.games = res;
     });
+  }
 
+  onNewGame() {
+    this.router.navigate(['add'], {relativeTo: this.route});
   }
 
   ngOnDestroy() {

@@ -14,6 +14,9 @@ import {HttpModule} from '@angular/http';
 import { GameStartComponent } from './games/game-list/game-start/game-start.component';
 import { GameDetailComponent } from './games/game-detail/game-detail.component';
 import { AdvancedComponent } from './advanced/advanced.component';
+import { GameAddComponent } from "./games/game-add/game-add.component";
+import { CharacterDetailComponent } from "./character/character-detail/character-detail.component";
+import { CharacterItemComponent } from "./character/character-item/character-item.component";
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { AdvancedComponent } from './advanced/advanced.component';
     GameItemComponent,
     GameStartComponent,
     GameDetailComponent,
-    AdvancedComponent
+    GameAddComponent,
+    AdvancedComponent,
+    CharacterDetailComponent,
+    CharacterItemComponent
   ],
   imports: [
     BrowserModule,

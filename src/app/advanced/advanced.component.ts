@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GameService} from '../games/game.service';
 import {Game} from '../games/game.model';
+import {Gamecharacter} from "../games/gamecharacter.model";
 
 @Component({
   selector: 'app-advanced',
@@ -10,6 +11,7 @@ import {Game} from '../games/game.model';
 })
 export class AdvancedComponent implements OnInit {
   game: Game = new Game({name: 'loading', imagePath: ''});
+  character: { name: string, description: string, imagePath: string};
   id: string;
 
   constructor(private gameService: GameService,
@@ -29,6 +31,10 @@ export class AdvancedComponent implements OnInit {
       );
   }
 
+  onGameSelected(character: Gamecharacter) {
+    console.log('click2');
+    this.character = character;
+    console.log(character);
 
-
+  }
 }

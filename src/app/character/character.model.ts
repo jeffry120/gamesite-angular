@@ -1,16 +1,8 @@
-export class Game {
+export class Character {
   private id: string;
   private _name: string;
-  private _characters: [object];
   private _description: string;
   private _imagepath: string;
-  // private creators
-
-
-
-  constructor(values: object = {}) {
-    Object.assign(this, values);
-  }
 
   public get _id() {
     return this.id;
@@ -18,14 +10,6 @@ export class Game {
 
   public set _id(n: string) {
     this.id = n;
-  }
-
-  public get characters() {
-    return this._characters;
-  }
-
-  public set characters(n: [object]) {
-    this._characters = n;
   }
 
   public get name() {
@@ -51,6 +35,4 @@ export class Game {
   public set imagePath(n: string) {
     this._imagepath = n;
   }
-
-
 }

@@ -45,4 +45,10 @@ export class GameService {
         return error;
       });
   }
+
+  addGame(game: Game) {
+    this.games.push(game);
+    this.gameChanged.next(this.games.slice());
+  }
+
 }

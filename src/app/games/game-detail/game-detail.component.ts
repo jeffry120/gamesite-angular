@@ -8,8 +8,9 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   templateUrl: './game-detail.component.html',
   styleUrls: ['./game-detail.component.css']
 })
+
 export class GameDetailComponent implements OnInit {
-  game: Game = new Game({name: 'loading', imagePath: ''});
+  game: Game = new Game({name: 'wait', imagePath: ''});
   id: string;
 
   constructor(private gameService: GameService,
@@ -28,7 +29,4 @@ export class GameDetailComponent implements OnInit {
         }
       );
   }
-
-
-
 }

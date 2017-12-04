@@ -1,16 +1,10 @@
-export class Game {
+import {Character} from '../character/character.model';
+export class Gamecharacter {
   private id: string;
   private _name: string;
-  private _characters: [object];
   private _description: string;
   private _imagepath: string;
-  // private creators
-
-
-
-  constructor(values: object = {}) {
-    Object.assign(this, values);
-  }
+  private _details: Character
 
   public get _id() {
     return this.id;
@@ -20,12 +14,12 @@ export class Game {
     this.id = n;
   }
 
-  public get characters() {
-    return this._characters;
+  public get details() {
+    return this._details;
   }
 
-  public set characters(n: [object]) {
-    this._characters = n;
+  public set details(n: Character) {
+    this._details = n;
   }
 
   public get name() {
@@ -51,6 +45,4 @@ export class Game {
   public set imagePath(n: string) {
     this._imagepath = n;
   }
-
-
 }
