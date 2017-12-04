@@ -1,6 +1,7 @@
 export class Game {
   private id: string;
   private _name: string;
+  private _genre: string;
   private _characters: [object];
   private _description: string;
   private _imagepath: string;
@@ -34,6 +35,14 @@ export class Game {
 
   public set name(n: string) {
     this._name = n;
+  }
+
+  public get genre() {
+    return this._genre;
+  }
+
+  public set genre(n: string) {
+    this._genre = n;
   }
 
   public get creators() {

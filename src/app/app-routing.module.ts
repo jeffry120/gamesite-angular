@@ -4,7 +4,7 @@ import {GamesComponent} from './games/games.component';
 import {GameStartComponent} from './games/game-list/game-start/game-start.component';
 import {GameDetailComponent} from './games/game-detail/game-detail.component';
 import {AdvancedComponent} from './advanced/advanced.component';
-import {GameAddComponent} from "./games/game-add/game-add.component";
+import { GameAddComponent } from "./games/game-add/game-add.component";
 import {CharacterDetailComponent} from "./character/character-detail/character-detail.component";
 
 const appRoutes: Routes = [
@@ -12,7 +12,8 @@ const appRoutes: Routes = [
   {path: 'games', component: GamesComponent, children: [
     {path: '', component: GameStartComponent},
     {path: 'add', component: GameAddComponent},
-    {path: ':id', component: GameDetailComponent}
+    {path: ':id', component: GameDetailComponent},
+    {path: ':id/edit', component: GameAddComponent}
   ]},
   {path: 'advanced/:id', component: AdvancedComponent, children: [
     {path: '', component: GameStartComponent},

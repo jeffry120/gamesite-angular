@@ -13,5 +13,4 @@ export class CharacterDetailComponent implements OnInit {
   ngOnInit() {
     console.log(this.character.details[0].name);
   }
-
 }

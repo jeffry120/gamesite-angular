@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Game} from "../game.model";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {GameService} from "../game.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Response } from '@angular/http';
+import { GameService } from '../game.service';
+import {Game} from '../game.model';
+
 
 @Component({
-  selector: 'app-game',
+  selector: 'app-game-add',
   templateUrl: './game-add.component.html',
   styleUrls: ['./game-add.component.css']
 })
-
 export class GameAddComponent implements OnInit {
-  games: Game;
-  id: number;
+  id: string;
   editMode = false;
   gameForm: FormGroup;
 
@@ -25,40 +25,85 @@ export class GameAddComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.editMode = params['id'] != null;
-         // this.initForm();
+          this.initForm();
         }
       );
-
-    // onSubmit(){
-    //   const newGame = new Game(
-    //     this.gameForm.value['name'],
-    //     this.gameForm.value['description'],
-    //     this.gameForm.value['imagePath'],
-    //   if (this.editMode) {
-    //     this.gameService.addGame(newGame);
-    //   }
-    // }
-
-    // private initForm() {
-    //     let gameName = '';
-    //     let gameImagePath = '';
-    //     let gameDescription = '';
-    //
-    //     if (this.editMode) {
-    //       const game = this.gameService.getGame(this.id);
-    //       gameName = game.name;
-    //       gameImagePath = game.imagePath;
-    //       gameDescription = game.description;
-    //     }
-    //
-    //     this.gameForm = new FormGroup({
-    //       'name': new FormControl(gameName, Validators.required),
-    //       'imagePath': new FormControl(gameImagePath, Validators.required),
-    //       'description': new FormControl(gameDescription, Validators.required),
-    //     });
-    //   }
-
   }
+
+  onSubmit() {
+    // const newRecipe = new Recipe(
+    //   this.recipeForm.value['name'],
+    //   this.recipeForm.value['description'],
+    //   this.recipeForm.value['imagePath'],
+    //   this.recipeForm.value['ingredients']);
+    if (this.editMode) {
+      this.gameService.updateGame(this.id, this.gameForm.value);
+    } else {
+      this.gameService.addGame(this.gameForm.value);
+      this.gameService.getGames()
+        .then(games => {
+          this.gameService.gameChanged.next(games.slice());
+        });
+    }
+    this.onCancel();
+  }
+
+  onAddCharacter() {
+    (<FormArray>this.gameForm.get('characters')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required)
+      })
+    );
+  }
+
+  onDeleteCharacter(index: number) {
+    (<FormArray>this.gameForm.get('characters')).removeAt(index);
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  private initForm() {
+    let editgame = new Game({name: '', imagepath: '', description: ''});
+
+    const Gamecharacter = new FormArray([]);
+
+    if (this.editMode) {
+      this.gameService.getGame(this.id)
+        .then(game => {
+          editgame = game;
+          if (game['characters']) {
+            for (const character of game._characters) {
+              Gamecharacter.push(
+                new FormGroup({
+                  'name': new FormControl(character.name, Validators.required)
+                })
+              );
+            }
+          }
+          this.gameForm = new FormGroup({
+            'name': new FormControl(editgame.name, Validators.required),
+            'genre': new FormControl(editgame.genre, Validators.required),
+            'description': new FormControl(editgame.description, Validators.required),
+            'characters': Gamecharacter,
+            'imagePath': new FormControl(editgame.imagePath, Validators.required),
+            'creators': new FormControl(editgame.creators, Validators.required),
+          });
+        })
+        .catch(error => console.log(error));
+    }
+
+    this.gameForm = new FormGroup({
+      'name': new FormControl('', Validators.required),
+      'genre': new FormControl('', Validators.required),
+      'description': new FormControl('', Validators.required),
+      'characters': new FormArray([]),
+      'imagePath': new FormControl('', Validators.required),
+      'creators': new FormControl('', Validators.required),
+    });
+  }
+
 }

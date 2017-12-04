@@ -47,8 +47,27 @@ export class GameService {
   }
 
   addGame(game: Game) {
-    this.games.push(game);
-    this.gameChanged.next(this.games.slice());
+    return this.http.post(this.serverUrl, game, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.gameChanged.next(this.games.slice());
+      });
+  }
+
+  updateGame(index: string, newGame: Game) {
+    return this.http.put(this.serverUrl + index, newGame, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.gameChanged.next(this.games.slice());
+      });
+  }
+
+  deleteGame(index: string) {
+    return this.http.delete(this.serverUrl + index, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.gameChanged.next(this.games.slice());
+      });
   }
 
 }

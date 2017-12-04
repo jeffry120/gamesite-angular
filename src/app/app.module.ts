@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
@@ -17,6 +18,7 @@ import { AdvancedComponent } from './advanced/advanced.component';
 import { GameAddComponent } from "./games/game-add/game-add.component";
 import { CharacterDetailComponent } from "./character/character-detail/character-detail.component";
 import { CharacterItemComponent } from "./character/character-item/character-item.component";
+import {DropdownDirective} from "./shared/dropdown.directive";
 
 
 @NgModule({
@@ -31,12 +33,15 @@ import { CharacterItemComponent } from "./character/character-item/character-ite
     GameAddComponent,
     AdvancedComponent,
     CharacterDetailComponent,
-    CharacterItemComponent
+    CharacterItemComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
