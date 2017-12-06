@@ -1,8 +1,38 @@
 <div class="row" >
   <div class="col-xs-12">
+    <p>Can't find your game? Add it now!</p>
     <button class="btn btn-primary" (click)="onNewGame()">Add new game</button>
   </div>
 </div>
+
+<p>Search for your game</p>
+
+<div class="col-md-12">
+  <p class="pull-left">Game Title: </p>
+  <input type="text" [(ngModel)]="filteredStatus" placeholder="Search for game..." list="gamenames"  >
+</div>
+
+<div class="col-md-12">
+  <p class="pull-left">Game Genre: </p>
+  <input type="text" [(ngModel)]="filteredGenre" placeholder="Search for genre..." list="gamegenres"  >
+</div>
+
+<div class="col-md-12">
+  <p class="pull-left">Game Creator: </p>
+  <input type="text" [(ngModel)]="filteredCreator" placeholder="Search for creator..." list="gamecreators"  >
+</div>
+
+<datalist id="gamenames">
+  <option *ngFor="let game of games" value="{{game.name}}">{{game.name}}</option>
+</datalist>
+
+<datalist id="gamegenres">
+  <option *ngFor="let game of games" value="{{game.genre}}">{{game.genre}}</option>
+</datalist>
+
+<datalist id="gamecreators">
+  <option *ngFor="let game of games" value="{{game.creators}}">{{game.creators}}</option>
+</datalist>
 
 <h1>Welcome to my website!</h1>
 
@@ -10,7 +40,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-game-item
-      *ngFor="let gameEl of games; let i = index"
+      *ngFor="let gameEl of games | filter:filteredStatus:'name' | filter:filteredGenre: 'genre' | filter:filteredCreator ; let i = index"
       [game]="gameEl"
       [index]="i"></app-game-item>
   </div>

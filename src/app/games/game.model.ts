@@ -1,13 +1,15 @@
+import {Gamecharacter} from "./gamecharacter.model";
+import {Platform} from "./platform.model"
+
 export class Game {
   private id: string;
   private _name: string;
   private _genre: string;
-  private _characters: [object];
+  private _characters: Gamecharacter[];
+  private _platforms: Platform[];
   private _description: string;
   private _imagepath: string;
   private _creators: string;
-
-
 
   constructor(values: object = {}) {
     Object.assign(this, values);
@@ -21,11 +23,19 @@ export class Game {
     this.id = n;
   }
 
-  public get characters() {
+  public get platforms(): Platform[] {
+    return this._platforms;
+  }
+
+  public set platforms(p: Platform[]) {
+    this._platforms = p;
+  }
+
+  public get characters(): Gamecharacter[] {
     return this._characters;
   }
 
-  public set characters(n: [object]) {
+  public set characters(n: Gamecharacter[]) {
     this._characters = n;
   }
 

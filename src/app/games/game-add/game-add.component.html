@@ -11,7 +11,10 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Title</label>
-            <input type="text" id="name" formControlName="name" class="form-control">
+            <input type="text"
+                   id="name"
+                   formControlName="name"
+                   class="form-control">
           </div>
         </div>
       </div>
@@ -50,8 +53,8 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="developer">Creator</label>
-            <input type="text" id="developer" formControlName="creators" class="form-control">
+            <label for="creators">Creator</label>
+            <input type="text" id="creators" formControlName="creators" class="form-control">
           </div>
         </div>
       </div>
@@ -65,6 +68,12 @@
             <pre *ngIf="characterCtrl">{{ characterCtrl.value | json }}</pre>
             <div class="col-xs-8">
               <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" formControlName="imagePath">
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" formControlName="description">
             </div>
             <div class="col-xs-2">
               <button type="button" class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>

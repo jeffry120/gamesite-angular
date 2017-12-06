@@ -12,6 +12,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class GameListComponent implements OnInit, OnDestroy {
   games: Game[];
   subscription: Subscription;
+  filteredStatus = '';
+  filteredGenre = '';
+  filteredCreator = '';
 
   constructor(private gameService: GameService,
               private router: Router,

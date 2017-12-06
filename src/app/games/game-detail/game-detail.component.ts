@@ -24,7 +24,7 @@ export class GameDetailComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.gameService.getGame(this.id).then(res => {
-            this.game = res[0];
+            this.game = res;
           });
         }
       );

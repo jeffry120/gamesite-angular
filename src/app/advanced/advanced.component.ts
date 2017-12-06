@@ -25,7 +25,7 @@ export class AdvancedComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.gameService.getGame(this.id).then(res => {
-            this.game = res[0];
+            this.game = res;
           });
         }
       );
@@ -36,5 +36,9 @@ export class AdvancedComponent implements OnInit {
     this.character = character;
     console.log(character);
 
+  }
+
+  onCancel() {
+    this.router.navigate(['../../games'], {relativeTo: this.route});
   }
 }

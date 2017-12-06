@@ -36,6 +36,18 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-12">
+    Game Platforms:
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let platform of game.platforms">
+        {{ platform.name }}
+      </li>
+    </ul>
+  </div>
+</div>
 <div class="row" >
   <div class="col-xs-12">
     <button class="btn btn-primary" routerLink="/advanced/{{id}}">More details</button>

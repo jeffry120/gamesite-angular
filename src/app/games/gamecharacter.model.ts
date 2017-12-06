@@ -1,5 +1,8 @@
 import {Character} from '../character/character.model';
 export class Gamecharacter {
+
+  constructor(public name: string,  public imagePath: string, public description: string) {}
+
   private id: string;
   private _name: string;
   private _description: string;
@@ -22,27 +25,27 @@ export class Gamecharacter {
     this._details = n;
   }
 
-  public get name() {
-    return this._name;
-  }
-
-  public set name(n: string) {
-    this._name = n;
-  }
-
-  public get description() {
-    return this._description;
-  }
-
-  public set description(n: string) {
-    this._description = n;
-  }
-
-  public get imagePath() {
-    return this._imagepath;
-  }
-
-  public set imagePath(n: string) {
-    this._imagepath = n;
-  }
+  // public get name() {
+  //   return this._name;
+  // }
+  //
+  // public set name(n: string) {
+  //   this._name = n;
+  // }
+  //
+  // public get description() {
+  //   return this._description;
+  // }
+  //
+  // public set description(n: string) {
+  //   this._description = n;
+  // }
+  //
+  // public get imagePath() {
+  //   return this._imagepath;
+  // }
+  //
+  // public set imagePath(n: string) {
+  //   this._imagepath = n;
+  // }
 }

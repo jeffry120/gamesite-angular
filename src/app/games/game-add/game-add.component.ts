@@ -33,11 +33,6 @@ export class GameAddComponent implements OnInit {
   }
 
   onSubmit() {
-    // const newRecipe = new Recipe(
-    //   this.recipeForm.value['name'],
-    //   this.recipeForm.value['description'],
-    //   this.recipeForm.value['imagePath'],
-    //   this.recipeForm.value['ingredients']);
     if (this.editMode) {
       this.gameService.updateGame(this.id, this.gameForm.value);
     } else {
@@ -53,7 +48,9 @@ export class GameAddComponent implements OnInit {
   onAddCharacter() {
     (<FormArray>this.gameForm.get('characters')).push(
       new FormGroup({
-        'name': new FormControl(null, Validators.required)
+        'name': new FormControl(null, Validators.required),
+        'imagePath': new FormControl(null, Validators.required),
+        'description': new FormControl(null, Validators.required)
       })
     );
   }
@@ -76,10 +73,12 @@ export class GameAddComponent implements OnInit {
         .then(game => {
           editgame = game;
           if (game['characters']) {
-            for (const character of game._characters) {
+            for (const character of game.characters) {
               Gamecharacter.push(
                 new FormGroup({
-                  'name': new FormControl(character.name, Validators.required)
+                  'name': new FormControl(character.name, Validators.required),
+                  'imagePath': new FormControl(character.imagePath),
+                  'description': new FormControl(character.description, Validators.required)
                 })
               );
             }

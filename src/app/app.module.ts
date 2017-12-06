@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 
+import {Game} from "./games/game.model";
 import { GamesComponent } from './games/games.component';
 import { GameListComponent } from './games/game-list/game-list.component';
 import { GameItemComponent } from './games/game-list/game-item/game-item.component';
@@ -19,6 +20,9 @@ import { GameAddComponent } from "./games/game-add/game-add.component";
 import { CharacterDetailComponent } from "./character/character-detail/character-detail.component";
 import { CharacterItemComponent } from "./character/character-item/character-item.component";
 import {DropdownDirective} from "./shared/dropdown.directive";
+import {FilterPipe} from "./games/game-list/filter.pipe";
+import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
+import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
 
 
 @NgModule({
@@ -34,7 +38,10 @@ import {DropdownDirective} from "./shared/dropdown.directive";
     AdvancedComponent,
     CharacterDetailComponent,
     CharacterItemComponent,
-    DropdownDirective
+    DropdownDirective,
+    FilterPipe,
+    FiltergenrePipe,
+    FiltercreatorPipe
   ],
   imports: [
     BrowserModule,
