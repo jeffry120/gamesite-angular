@@ -19,8 +19,9 @@
 
 <div class="col-md-12">
   <p class="pull-left">Game Creator: </p>
-  <input type="text" [(ngModel)]="filteredCreator" placeholder="Search for creator..." list="gamecreators"  >
+  <input type="text" [(ngModel)]="filteredTest" placeholder="Search for creator..." list="gamecreator"  >
 </div>
+
 
 <datalist id="gamenames">
   <option *ngFor="let game of games" value="{{game.name}}">{{game.name}}</option>
@@ -30,7 +31,7 @@
   <option *ngFor="let game of games" value="{{game.genre}}">{{game.genre}}</option>
 </datalist>
 
-<datalist id="gamecreators">
+<datalist id="gamecreator">
   <option *ngFor="let game of games" value="{{game.creators}}">{{game.creators}}</option>
 </datalist>
 
@@ -40,7 +41,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-game-item
-      *ngFor="let gameEl of games | filter:filteredStatus:'name' | filter:filteredGenre: 'genre' | filter:filteredCreator ; let i = index"
+      *ngFor="let gameEl of games | filter:filteredStatus:'name' | filter:filteredGenre: 'genre' | filter:filteredTest: 'creators' ; let i = index"
       [game]="gameEl"
       [index]="i"></app-game-item>
   </div>

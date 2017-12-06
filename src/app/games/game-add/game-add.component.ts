@@ -44,6 +44,17 @@ export class GameAddComponent implements OnInit {
     }
     this.onCancel();
   }
+  onAddPlatform() {
+    (<FormArray>this.gameForm.get('platforms')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required)
+      })
+    );
+  }
+
+  onDeletePlatform(index: number) {
+    (<FormArray>this.gameForm.get('platforms')).removeAt(index);
+  }
 
   onAddCharacter() {
     (<FormArray>this.gameForm.get('characters')).push(
@@ -66,7 +77,9 @@ export class GameAddComponent implements OnInit {
   private initForm() {
     let editgame = new Game({name: '', imagepath: '', description: ''});
 
+    const GamePlatforms = new FormArray([]);
     const Gamecharacter = new FormArray([]);
+
 
     if (this.editMode) {
       this.gameService.getGame(this.id)
@@ -83,11 +96,22 @@ export class GameAddComponent implements OnInit {
               );
             }
           }
+          if (game['platforms']) {
+            for (const platform of game.platforms) {
+              GamePlatforms.push(
+                new FormGroup({
+                  'name': new FormControl(platform.name, Validators.required)
+                })
+              );
+
+            }
+          }
           this.gameForm = new FormGroup({
             'name': new FormControl(editgame.name, Validators.required),
             'genre': new FormControl(editgame.genre, Validators.required),
             'description': new FormControl(editgame.description, Validators.required),
             'characters': Gamecharacter,
+            'platforms': GamePlatforms,
             'imagePath': new FormControl(editgame.imagePath, Validators.required),
             'creators': new FormControl(editgame.creators, Validators.required),
           });
@@ -100,6 +124,7 @@ export class GameAddComponent implements OnInit {
       'genre': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
       'characters': new FormArray([]),
+      'platforms': new FormArray([]),
       'imagePath': new FormControl('', Validators.required),
       'creators': new FormControl('', Validators.required),
     });

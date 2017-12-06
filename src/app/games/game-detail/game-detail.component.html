@@ -19,6 +19,13 @@
     <p>{{game.description}}</p>
   </div>
 </div>
+
+<div class="row" >
+  <div class="col-xs-12">
+    <hr>
+    <p>{{game.creators}}</p>
+  </div>
+</div>
 <div class="row">
   <div class="col-xs-12">
     <div
@@ -42,8 +49,8 @@
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let platform of game.platforms">
-        {{ platform.name }}
+        *ngFor="let platforms of game.platforms">
+        {{ platforms.name }}
       </li>
     </ul>
   </div>

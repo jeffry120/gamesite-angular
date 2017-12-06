@@ -25,6 +25,8 @@ import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
 import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
