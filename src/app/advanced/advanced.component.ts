@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GameService} from '../games/game.service';
 import {Game} from '../games/game.model';
@@ -12,6 +12,7 @@ import {Gamecharacter} from "../games/gamecharacter.model";
 export class AdvancedComponent implements OnInit {
   game: Game = new Game({name: 'loading', imagePath: ''});
   character: Gamecharacter;
+  @Input() gameId: string;
   id: string;
   index: number;
 

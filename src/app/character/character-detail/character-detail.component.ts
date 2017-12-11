@@ -13,6 +13,6 @@ export class CharacterDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    //console.log(this.character.details[0].name);
+
   }
 }
