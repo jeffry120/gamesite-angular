@@ -11,8 +11,9 @@ import {Gamecharacter} from "../games/gamecharacter.model";
 })
 export class AdvancedComponent implements OnInit {
   game: Game = new Game({name: 'loading', imagePath: ''});
-  character: { name: string, description: string, imagePath: string};
+  character: Gamecharacter;
   id: string;
+  index: number;
 
   constructor(private gameService: GameService,
               private route: ActivatedRoute,
@@ -32,7 +33,7 @@ export class AdvancedComponent implements OnInit {
   }
 
   onGameSelected(character: Gamecharacter) {
-    console.log('click2');
+    console.log('click');
     this.character = character;
     console.log(character);
 

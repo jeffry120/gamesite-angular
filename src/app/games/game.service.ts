@@ -3,6 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {environment} from '../../environments/environment';
 import {Http, Headers} from '@angular/http';
 import {Game} from './game.model';
+import {Gamecharacter} from "./gamecharacter.model";
 
 @Injectable()
 export class GameService {
@@ -12,6 +13,7 @@ export class GameService {
   private serverUrl = environment.serverUrl + '/games/';
 
   private games: Game[];
+  private characters: Gamecharacter[];
 
   constructor(private http: Http) {
 
@@ -46,11 +48,53 @@ export class GameService {
       });
   }
 
+  getCharacters() {
+    return this.http.get(environment.serverUrlCharacter, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.characters = response.json() as Gamecharacter[];
+        return response.json() as Gamecharacter[];
+      })
+      .catch(error => {
+        return error;
+      });
+
+  }
+
+  getCharacter(index: string) {
+    if (index == null)
+      return null;
+    return this.http.get(environment.serverUrlCharacter + index, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(error => {
+        console.log(error)
+        return error;
+      });
+  }
+
+  addCharacter(id: string, char: Gamecharacter, game: Game) {
+    console.log('addChar')
+
+    return this.http.post(environment.serverUrlCharacter, char, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+
+        return response.json() as Gamecharacter;
+      })
+      .catch(error => {
+        return error;
+      });
+  }
+
+
   addGame(game: Game) {
     return this.http.post(this.serverUrl, game, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games.slice());
+        this.gameChanged.next(this.games);
       });
   }
 
@@ -58,7 +102,16 @@ export class GameService {
     return this.http.put(this.serverUrl + index, newGame, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games.slice());
+        this.gameChanged.next(this.games);
+      });
+  }
+
+  updateCharacter(id: string, newChar: Gamecharacter) {
+    console.log('update');
+    return this.http.put(environment.serverUrlCharacter + id, newChar, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.gameChanged.next(this.games);
       });
   }
 

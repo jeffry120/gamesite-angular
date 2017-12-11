@@ -1,41 +1,42 @@
-<div class="row" >
+<h1>Welcome to my website!</h1>
+
+<div class="row marginAddSection" >
   <div class="col-xs-12">
-    <p>Can't find your game? Add it now!</p>
-    <button class="btn btn-primary" (click)="onNewGame()">Add new game</button>
+    <h4>Can't find your game? Add it now!</h4>
+    <button class="btn btn-primary" (click)="onNewGame()"><span class="glyphicon glyphicon-plus iconButton"></span>Add new game</button>
+
+
+<h4>Search for your game</h4>
+
+<div>
+ <div class="col-md-4 filterSpaceing">
+  <p class="pull-left">Game Title: </p>
+ </div>
+  <div class="col-md-8 filterSpace">
+  <input type="text" [(ngModel)]="filteredStatus" placeholder="Search for game..."  >
+ </div>
+</div>
+
+<div>
+  <div class="col-md-4 filterSpaceing">
+  <p class="pull-left">Game Genre: </p>
+  </div>
+  <div class="col-md-8 filterSpace">
+  <input type="text" [(ngModel)]="filteredGenre" placeholder="Search for genre..."  >
+</div>
+</div>
+
+
+<div>
+  <div class="col-md-4 filterSpaceing">
+  <p class="pull-left">Game Creator: </p>
+  </div>
+  <div class="col-md-8 filterSpace">
+  <input type="text" [(ngModel)]="filteredTest" placeholder="Search for creator..."  >
+</div>
+</div>
   </div>
 </div>
-
-<p>Search for your game</p>
-
-<div class="col-md-12">
-  <p class="pull-left">Game Title: </p>
-  <input type="text" [(ngModel)]="filteredStatus" placeholder="Search for game..." list="gamenames"  >
-</div>
-
-<div class="col-md-12">
-  <p class="pull-left">Game Genre: </p>
-  <input type="text" [(ngModel)]="filteredGenre" placeholder="Search for genre..." list="gamegenres"  >
-</div>
-
-<div class="col-md-12">
-  <p class="pull-left">Game Creator: </p>
-  <input type="text" [(ngModel)]="filteredTest" placeholder="Search for creator..." list="gamecreator"  >
-</div>
-
-
-<datalist id="gamenames">
-  <option *ngFor="let game of games" value="{{game.name}}">{{game.name}}</option>
-</datalist>
-
-<datalist id="gamegenres">
-  <option *ngFor="let game of games" value="{{game.genre}}">{{game.genre}}</option>
-</datalist>
-
-<datalist id="gamecreator">
-  <option *ngFor="let game of games" value="{{game.creators}}">{{game.creators}}</option>
-</datalist>
-
-<h1>Welcome to my website!</h1>
 
 <hr>
 <div class="row">

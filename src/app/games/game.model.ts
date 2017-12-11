@@ -5,7 +5,7 @@ export class Game {
   private id: string;
   private _name: string;
   private _genre: string;
-  private _characters: Gamecharacter[];
+  private _characters: [object];
   private _platforms: Platform[];
   private _description: string;
   private _imagepath: string;
@@ -31,11 +31,11 @@ export class Game {
     this._platforms = p;
   }
 
-  public get characters(): Gamecharacter[] {
+  public get characters() {
     return this._characters;
   }
 
-  public set characters(n: Gamecharacter[]) {
+  public set characters(n: [object]) {
     this._characters = n;
   }
 

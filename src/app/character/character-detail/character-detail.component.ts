@@ -8,6 +8,8 @@ import {Gamecharacter} from '../../games/gamecharacter.model';
 })
 export class CharacterDetailComponent implements OnInit {
   @Input() character: Gamecharacter;
+  @Input() gameId: string;
+
   constructor() { }
 
   ngOnInit() {

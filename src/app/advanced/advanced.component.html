@@ -19,14 +19,15 @@
     <div class="row" >
       <div class="col-xs-12">
         <hr>
-        <p>{{game.description}}</p>
+        <strong>Description:</strong>
+        {{game.description}}
       </div>
     </div>
     <div class="row" >
       <div class="col-xs-12">
         <hr>
-        <p>Creator: {{game.creators}}</p>
-        <!--<p>Platforms: {{game.platforms}}</p>-->
+        <strong>Creator:</strong>
+          {{game.creators}}
       </div>
     </div>
   </div>
@@ -38,7 +39,8 @@
     <app-character-item
       *ngFor="let characterEL of game.characters"
       [character]="characterEL"
-
+      [gameId]="game._id"
+      [index]="i"
       (characterSelected)="onGameSelected(characterEL)">
     </app-character-item>
   </div>
@@ -46,6 +48,7 @@
     <app-character-detail
       *ngIf="character; else info"
       [character]="character"
+      [gameId]="game._id"
     ></app-character-detail>
     <ng-template #info>
       <p>Select an character for more information</p>

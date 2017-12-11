@@ -23,6 +23,7 @@ import {DropdownDirective} from "./shared/dropdown.directive";
 import {FilterPipe} from "./games/game-list/filter.pipe";
 import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
 import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
+import {CharacterAddComponent} from "./games/character-add/character-add.component";
 
 
 
@@ -43,7 +44,8 @@ import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
     DropdownDirective,
     FilterPipe,
     FiltergenrePipe,
-    FiltercreatorPipe
+    FiltercreatorPipe,
+    CharacterAddComponent
   ],
   imports: [
     BrowserModule,

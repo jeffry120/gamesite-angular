@@ -59,62 +59,62 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-12" formArrayName="characters">
-          <!-- Oorspronkelijk: <div class="row" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i" -->
-          <div class="row" *ngFor="let characterCtrl of gameForm['controls'].characters['controls']; let i = index" [formGroupName]="i"
-               style="margin-top: 10px;">
-            <!-- De volgende regel voeg je ook toe -->
-            <pre *ngIf="characterCtrl">{{ characterCtrl.value | json }}</pre>
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="imagePath">
-            </div>
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="description">
-            </div>
-            <div class="col-xs-2">
-              <button type="button" class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-              <button type="button" class="btn btn-success" (click)="onAddCharacter()">AddCharacter</button>
-            </div>
-          </div>
-          <br/>
-          <br/>
-        </div>
-      </div>
+      <!--<div class="row">-->
+        <!--<div class="col-xs-12" formArrayName="characters">-->
+          <!--<label>Characters</label>-->
+          <!--&lt;!&ndash; Oorspronkelijk: <div class="row" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i" &ndash;&gt;-->
+          <!--<div class="row" *ngFor="let characterCtrl of gameForm['controls'].characters['controls']; let i = index"-->
+               <!--[formGroupName]="i"-->
+               <!--style="margin-top: 10px;">-->
+            <!--&lt;!&ndash; De volgende regel voeg je ook toe &ndash;&gt;-->
+            <!--<pre *ngIf="characterCtrl">{{ characterCtrl.value | json }}</pre>-->
+            <!--<div class="col-xs-8">-->
+              <!--<input type="text" class="form-control" formControlName="name" placeholder="Character name">-->
+            <!--</div>-->
+            <!--<div class="col-xs-8">-->
+              <!--<input type="text" class="form-control" formControlName="imagePath" placeholder="Character image">-->
+            <!--</div>-->
+            <!--<div class="col-xs-8">-->
+              <!--<input type="text" class="form-control" formControlName="description" placeholder="Character description">-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+              <!--<button type="button" class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<hr>-->
+          <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+              <!--<button type="button" class="btn btn-success" (click)="onAddCharacter()">AddCharacter</button>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<br/>-->
+          <!--<br/>-->
+        <!--</div>-->
+      <!--</div>-->
 
-      <div class="row">
-        <div class="col-xs-12" formArrayName="platforms">
-          <label>Platforms</label>
-          <!-- Oorspronkelijk: <div class="row" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i" -->
-          <div class="row" *ngFor="let platformCtrl of gameForm['controls'].platforms['controls']; let i = index" [formGroupName]="i"
-               style="margin-top: 10px;">
-            <!-- De volgende regel voeg je ook toe -->
-            <pre *ngIf="platformCtrl">{{ platformCtrl.value | json }}</pre>
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name" placeholder="Platform name">
-            </div>
-            <div class="col-xs-2">
-              <button type="button" class="btn btn-danger" (click)="onDeletePlatform(i)">X</button>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-              <button type="button" class="btn btn-success" (click)="onAddPlatform()">Add Platform</button>
-            </div>
-          </div>
-          <br/>
-          <br/>
-        </div>
-      </div>
+      <!--<div class="row">-->
+        <!--<div class="col-xs-12" formArrayName="characters">-->
+          <!--<div-->
+            <!--class="row"-->
+            <!--*ngFor="let characterCtrl of gameForm.get('characters')['controls']; let i = index"-->
+            <!--[formGroupName]="i"-->
+            <!--style="margin-top: 10px;">-->
+            <!--<div class="col-xs-8">-->
+              <!--<input-->
+                <!--type="text"-->
+                <!--class="form-control"-->
+                <!--formControlName="_id">-->
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+              <!--<button-->
+                <!--type="button"-->
+                <!--class="btn btn-danger"-->
+                <!--(click)="onDeleteCharacter(i)">X</button>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<hr>-->
+        <!--</div>-->
+      <!--</div>-->
     </form>
   </div>
 </div>

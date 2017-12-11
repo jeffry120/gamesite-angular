@@ -1,10 +1,6 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ game.name }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
+<div class="itemStyle">
+<div class="row rowspace">
+  <div class="col-xs-12 imageSpacing">
     <img
       [src]="game.imagePath"
       alt="{{ game.name }}"
@@ -13,50 +9,50 @@
   </div>
 </div>
 
-<div class="row" >
-  <div class="col-xs-12">
-    <hr>
-    <p>{{game.description}}</p>
-  </div>
-</div>
-
-<div class="row" >
-  <div class="col-xs-12">
-    <hr>
-    <p>{{game.creators}}</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
+  <div class="row itemSpacing">
+    <div class="col-xs-12 bottomSpacing">
     <div
-      class="btn-group"
+      class="btn-group buttonStyle"
       appDropdown>
       <button
         type="button"
         class="btn btn-primary dropdown-toggle">
-        Manage Game <span class="caret"></span>
+        Manage Game <span class="glyphicon glyphicon-collapse-down"></span>
       </button>
       <ul class="dropdown-menu">
         <li><a style="cursor: pointer;" (click)="onEditGame()">Edit Game</a></li>
         <li><a style="cursor: pointer;" (click)="onDeleteGame()">Delete Game</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditCharacter()">Edit Character</a></li>
       </ul>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    Game Platforms:
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let platforms of game.platforms">
-        {{ platforms.name }}
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="row" >
-  <div class="col-xs-12">
-    <button class="btn btn-primary" routerLink="/advanced/{{id}}">More details</button>
+
+      <button class="btn btn-primary" routerLink="/advanced/{{id}}">More details</button>
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>{{ game.name }}</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <strong>Description: </strong><br>
+          {{ game.description }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <strong>Genre:</strong>
+          {{ game.genre }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <strong>Creators:</strong>
+          {{ game.creators }}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
