@@ -8,35 +8,33 @@
 
 <h4>Search for your game</h4>
 
-<div>
- <div class="col-md-4 filterSpaceing">
-  <p class="pull-left">Game Title: </p>
- </div>
-  <div class="col-md-8 filterSpace">
-  <input type="text" [(ngModel)]="filteredStatus" placeholder="Search for game..."  >
- </div>
-</div>
+    <div>
+      <div class="col-md-4" style="margin-top: 23px;">
+        <p class="pull-right">Game Title: </p>
+      </div>
+      <div class="col-md-8 filterSpacing">
+        <input class="pull-left form-control" type="text" [(ngModel)]="filteredStatus" placeholder="Search for game..."  >
+      </div>
+    </div>
 
-<div>
-  <div class="col-md-4 filterSpaceing">
-  <p class="pull-left">Game Genre: </p>
-  </div>
-  <div class="col-md-8 filterSpace">
-  <input type="text" [(ngModel)]="filteredGenre" placeholder="Search for genre..."  >
-</div>
-</div>
+    <div>
+      <div class="col-md-4" style="margin-top: 23px;">
+        <p class="pull-right">Game Genre: </p>
+      </div>
+      <div class="col-md-8 filterSpacing">
+        <input class="pull-left form-control" type="text" [(ngModel)]="filteredGenre" placeholder="Search for genre..."  >
+      </div>
+    </div>
 
-
-<div>
-  <div class="col-md-4 filterSpaceing">
-  <p class="pull-left">Game Creator: </p>
+    <div>
+      <div class="col-md-4" style="margin-top: 23px;">
+        <p class="pull-right">Game Publisher: </p>
+      </div>
+      <div class="col-md-8 filterSpacing">
+        <input class="pull-left form-control" type="text" [(ngModel)]="filteredPublisher" placeholder="Search for publisher..."  >
+      </div>
+    </div>
   </div>
-  <div class="col-md-8 filterSpace">
-  <input type="text" [(ngModel)]="filteredTest" placeholder="Search for creator..."  >
-</div>
-</div>
-  </div>
-</div>
 
 <hr>
 <div class="row">
@@ -46,4 +44,5 @@
       [game]="gameEl"
       [index]="i"></app-game-item>
   </div>
+</div>
 </div>

@@ -15,6 +15,7 @@ export class AdvancedComponent implements OnInit {
   @Input() gameId: string;
   id: string;
   index: number;
+  relGame: Game[];
 
   constructor(private gameService: GameService,
               private route: ActivatedRoute,
@@ -28,7 +29,8 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.gameService.getGame(this.id).then(res => {
             this.game = res;
-          });
+          }).then(() => this.gameService.getGamesRel(this.game.genre)
+            .then((res) => this.relGame = res) );
         }
       );
   }

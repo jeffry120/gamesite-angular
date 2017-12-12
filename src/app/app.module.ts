@@ -24,6 +24,7 @@ import {FilterPipe} from "./games/game-list/filter.pipe";
 import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
 import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
 import {CharacterAddComponent} from "./games/character-add/character-add.component";
+import {RelGameItemComponent} from "./advanced/rel-game-item/game-rel-item.component";
 
 
 
@@ -45,7 +46,8 @@ import {CharacterAddComponent} from "./games/character-add/character-add.compone
     FilterPipe,
     FiltergenrePipe,
     FiltercreatorPipe,
-    CharacterAddComponent
+    CharacterAddComponent,
+    RelGameItemComponent
   ],
   imports: [
     BrowserModule,

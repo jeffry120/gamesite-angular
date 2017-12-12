@@ -1,0 +1,11 @@
+.contentStyle {
+  /*-webkit-box-shadow: 2px 5px 15px 1px #808080;*/
+  /*box-shadow: 2px 5px 15px 1px #808080;*/
+  -webkit-border-radius: 15px 15px;
+  border-radius: 15px 15px;
+}
+
+.itemStyle {
+  /*-webkit-box-shadow: 2px 2px 2px 1px #808080;*/
+  /*box-shadow: 2px 2px 2px 1px #808080;*/
+}

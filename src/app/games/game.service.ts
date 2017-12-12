@@ -30,9 +30,21 @@ export class GameService {
       .catch(error => {
         return error;
       });
-
-
 }
+
+  getGamesRel(genre: String) {
+    return this.http.get('http://localhost:3000/api/v1/gamesrel/' + genre, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        // this.series = response.json() as Serie[];
+        return response.json() as Game[];
+      })
+      .catch(error => {
+        return error;
+      });
+
+
+  }
 
   getGame(index: string) {
     if (index == null)
