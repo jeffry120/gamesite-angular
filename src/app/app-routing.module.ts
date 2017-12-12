@@ -15,8 +15,8 @@ const appRoutes: Routes = [
     {path: 'add', component: GameAddComponent},
     {path: ':id', component: GameDetailComponent},
     {path: ':id/edit', component: GameAddComponent},
-    {path: 'editChar/:id', component: CharacterAddComponent},
-    {path: 'editChar/:id/:charid', component: CharacterAddComponent}
+    {path: 'editCharacter/:id', component: CharacterAddComponent},
+    {path: 'editCharacter/:id/:charid', component: CharacterAddComponent}
   ]},
   {path: 'advanced/:id', component: AdvancedComponent, children: [
     {path: '', component: GameStartComponent},
