@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {GamesComponent} from './games/games.component';
 import {GameStartComponent} from './games/game-list/game-start/game-start.component';
 import {GameDetailComponent} from './games/game-detail/game-detail.component';
-import {AdvancedComponent} from './advanced/advanced.component';
+import {AdvancedComponent} from './advance/advance.component';
 import { GameAddComponent } from "./games/game-add/game-add.component";
 import {CharacterDetailComponent} from "./character/character-detail/character-detail.component";
 import {CharacterAddComponent} from "./games/character-add/character-add.component";
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     {path: 'editCharacter/:id', component: CharacterAddComponent},
     {path: 'editCharacter/:id/:charid', component: CharacterAddComponent}
   ]},
-  {path: 'advanced/:id', component: AdvancedComponent, children: [
+  {path: 'advance/:id', component: AdvancedComponent, children: [
     {path: '', component: GameStartComponent},
     {path: ':name', component: CharacterDetailComponent}
   ]},

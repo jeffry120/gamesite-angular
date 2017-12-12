@@ -1,7 +1,7 @@
-<div class="col-md-8 col-md-offset-2 contentStyle itemStyle">
-<button type="button" class="btn btn-danger" (click)="onCancel()">Go back</button>
+<div class="col-md-8 col-md-offset-2 contentStyle itemStyle ">
 
-<div class="row">
+  <button type="button" class="btn btn-danger" (click)="onCancel()">Go back</button>
+  <div class="row">
   <div class="col-md-12">
     <div class="row">
       <div class="col-xs-12 text-center">
@@ -17,7 +17,24 @@
           style="max-height: 300px; margin-left: auto; margin-right: auto;">
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-xs-12">
+        <strong>Genre:</strong>
+        {{ game.genre }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5">
+        <strong>Game Platforms:</strong>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let platform of game.platforms">
+            {{ platform.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="row" >
       <div class="col-xs-12">
         <hr>
@@ -37,10 +54,11 @@
 </div>
 
 
-<div class="row">
+<div class="row col-md-12 col-md-offset-0 contentStyle" style="margin-top: 30px">
   <div class="col-md-6">
     <h1>Characters</h1>
-    <button routerLink="/games/editCharacter/{{game._id}}/" class="btn btn-primary">Add Character</button>
+    <h5>Select an character for more information</h5>
+    <button routerLink="/games/editCharacter/{{game._id}}/" class="btn btn-primary"><span class="glyphicon glyphicon-plus iconButton"></span>Add Character</button>
     <app-character-item
       *ngFor="let characterEL of game.characters"
       [character]="characterEL"
@@ -55,16 +73,15 @@
       [character]="character"
       [gameId]="game._id"
     ></app-character-detail>
-    <ng-template #info>
-      <p>Select an character for more information</p>
-    </ng-template>
+    <!--<ng-template #info>-->
+      <!--<p>Select an character for more information</p>-->
+    <!--</ng-template>-->
   </div>
-
-</div>
 <hr>
-<h1>Related Games</h1>
+
 <div class="row">
   <div class="col-md-12">
+    <h1>Related Games</h1>
     <ul id="ul">
       <ng-container *ngFor="let gameEl of relGame">
         <li *ngIf="gameEl._id != game._id"  id="li"><app-rel-game-item
@@ -75,5 +92,5 @@
 
   </div>
 </div>
-
+</div>
 

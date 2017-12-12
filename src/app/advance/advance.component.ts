@@ -6,8 +6,8 @@ import {Gamecharacter} from "../games/gamecharacter.model";
 
 @Component({
   selector: 'app-advanced',
-  templateUrl: './advanced.component.html',
-  styleUrls: ['./advanced.component.css']
+  templateUrl: './advance.component.html',
+  styleUrls: ['./advance.component.css']
 })
 export class AdvancedComponent implements OnInit {
   game: Game = new Game({name: 'loading', imagePath: ''});
@@ -29,7 +29,8 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.gameService.getGame(this.id).then(res => {
             this.game = res;
-          }).then(() => this.gameService.getGamesRel(this.game.genre)
+          })
+            .then(() => this.gameService.getGamesRel(this.game.genre)
             .then((res) => this.relGame = res) );
         }
       );

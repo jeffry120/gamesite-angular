@@ -18,7 +18,6 @@ export class GameAddComponent implements OnInit {
   idChar: string;
   editMode = false;
   gameForm: FormGroup;
-  genres: [string];
   selectedGenre: string;
   characters: Gamecharacter;
   game: Game;
@@ -33,8 +32,6 @@ export class GameAddComponent implements OnInit {
       this.idChar = params['charid'];
       this.id = params['id'];
       this.editMode = params['id'] != null;
-      this.genres = ['FPS', 'JRPG', 'RPG'];
-      console.log(this.genres)
       this.initForm();
       //   this.gameService.getGame(this.id)
       //   .then(games => this.game = games);
@@ -42,10 +39,6 @@ export class GameAddComponent implements OnInit {
     });
   }
 
-  private changeSelectedType(event: any) {
-    console.log(event); //object, depends on ngValue
-    console.log(this.selectedGenre); //object, depends on ngValue
-  }
 
   onSubmit() {
     if (this.editMode) {
@@ -62,8 +55,7 @@ export class GameAddComponent implements OnInit {
   onAddPlatform() {
     (<FormArray>this.gameForm.get('platforms')).push(
       new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'model': new FormControl(null, Validators.required)
+        'name': new FormControl(null, Validators.required)
       })
     );
   }

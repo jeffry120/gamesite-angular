@@ -15,7 +15,7 @@ import {GameService} from './games/game.service';
 import {HttpModule} from '@angular/http';
 import { GameStartComponent } from './games/game-list/game-start/game-start.component';
 import { GameDetailComponent } from './games/game-detail/game-detail.component';
-import { AdvancedComponent } from './advanced/advanced.component';
+import { AdvancedComponent } from './advance/advance.component';
 import { GameAddComponent } from "./games/game-add/game-add.component";
 import { CharacterDetailComponent } from "./character/character-detail/character-detail.component";
 import { CharacterItemComponent } from "./character/character-item/character-item.component";
@@ -24,7 +24,7 @@ import {FilterPipe} from "./games/game-list/filter.pipe";
 import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
 import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
 import {CharacterAddComponent} from "./games/character-add/character-add.component";
-import {RelGameItemComponent} from "./advanced/rel-game-item/game-rel-item.component";
+import {RelGameItemComponent} from "./advance/game-related-item/game-rel-item.component";
 
 
 

@@ -1,0 +1,6 @@
+.content{
+  -webkit-border-radius: 12px 12px;
+  border-radius: 12px 12px;
+
+  background: -moz-linear-gradient(right, rgba(245,245,245,0.75), rgba(245,245,245,0.75));
+}

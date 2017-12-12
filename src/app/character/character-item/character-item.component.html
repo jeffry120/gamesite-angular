@@ -3,13 +3,10 @@
   style="cursor: pointer;"
   (click)="onSelected()"
   routerLinkActive="active"
-  class="list-group-item clearfix itemspace itemStyle">
+  class="col-md-12 list-group-item clearfix itemspace itemStyle">
   <div class="pull-right">
     <h4 class="list-group-item-heading">{{ character.name }}</h4>
     <p> </p>
-  </div>
-  <div class="col-sm-1">
-    <button routerLink="/games/editCharacter/{{gameId}}/{{character._id}}" class="btn btn-primary">Edit</button>
   </div>
   <span class="pull-left">
         <img
@@ -18,5 +15,8 @@
           class="img-responsive img-rounded"
           style="max-height: 50px;">
       </span>
+  <div class="col-sm-1">
+    <button routerLink="/games/editCharacter/{{gameId}}/{{character._id}}" class="btn btn-primary">Edit</button>
+  </div>
 </a>
 

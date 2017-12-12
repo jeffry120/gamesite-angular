@@ -1,13 +1,12 @@
-<div class="row">
-  <a
+<a
     style="cursor: pointer;"
-    routerLink="/advanced/{{gameRel._id}}"
-    class="list-group-item ">
-    <div class="pull-left">
+    routerLink="/games/{{gameRel._id}}"
+    class="col-md-12 list-group-item clearfix itemspace itemStyle">
+    <div class="pull-right">
       <h4 class="list-group-item-heading">{{ gameRel.name }}</h4>
 
     </div>
-    <span >
+    <span pull-left>
         <img
           [src]="gameRel.imagePath"
           alt="{{ gameRel.name }}"
@@ -15,4 +14,4 @@
           style="max-height: 50px;">
       </span>
   </a>
-</div>
+

@@ -42,7 +42,7 @@ export class CharacterAddComponent implements OnInit {
   onSubmit() {
     if (this.edit) {
       console.log(this.charForm.value);
-      this.router.navigate(['advanced/' + this.id]);
+      this.router.navigate(['advance/' + this.id]);
       this.gameService.updateCharacter(this.idChar, this.charForm.value);
     } else {
       this.gameService.addCharacter(this.idChar, this.charForm.value, this.game)
@@ -50,12 +50,12 @@ export class CharacterAddComponent implements OnInit {
           this.game.characters.push({'_id': res._id})
         )
         .then(() => this.gameService.updateGame(this.id, this.game));
-      this.router.navigate(['advanced/' + this.id]);
+      this.router.navigate(['advance/' + this.id]);
     }
   }
 
   onCancel() {
-    this.router.navigate(['/advanced/' + this.id]);
+    this.router.navigate(['/advance/' + this.id]);
   }
 
   private initForm() {

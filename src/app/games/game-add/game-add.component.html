@@ -25,10 +25,19 @@
             <select type="text"
                     id="genre"
                     formControlName="genre"
-                    class="form-control"
-                    [(ngModel)]="selectedGenre"
-                    (ngModelChange)="changeSelectedType($event)">
-              <option *ngFor="let type of genres" [ngValue]="type">{{type.toString()}}</option>
+                    class="form-control" [(ngModel)]="selectedGenre">
+
+              <option value="Action">Action</option>
+              <option value="FPS">First Person Shooter</option>
+              <option value="RPG">Role Playing Game</option>
+              <option value="JRPG">Japanese Role Playing Game</option>
+              <option value="Horror">Horror</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Simulation">Simulation</option>
+              <option value="Sport">Sport</option>
+              <option value="Retro">Retro</option>
+              <option value="Puzzle">Puzzle</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>

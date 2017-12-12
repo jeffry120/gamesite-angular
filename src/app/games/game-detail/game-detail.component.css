@@ -1,6 +1,7 @@
 .itemStyle {
   -webkit-border-radius: 15px 15px;
   border-radius: 15px 15px;
+  margin-top: 30px;
 }
 
 .rowspace{
