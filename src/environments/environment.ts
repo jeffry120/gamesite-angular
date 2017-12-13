@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   serverUrl: 'http://localhost:3000/api/v1',
   serverUrlChar: 'http://localhost:3000/api/v1/characters/',
+  serverUrlRel: 'http://localhost:3000/api/v1/gamesrel/'
 };
 

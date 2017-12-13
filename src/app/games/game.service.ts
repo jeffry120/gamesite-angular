@@ -35,7 +35,7 @@ export class GameService {
 }
 
   getGamesRel(genre: String) {
-    return this.http.get('http://localhost:3000/api/v1/gamesrel/' + genre, {headers: this.headers})
+    return this.http.get(environment.serverUrlRel + genre, {headers: this.headers})
       .toPromise()
       .then(response => {
         // this.series = response.json() as Serie[];
