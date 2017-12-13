@@ -44,14 +44,11 @@ export class GameAddComponent implements OnInit {
     if (this.editMode) {
       this.gameService.updateGame(this.id, this.gameForm.value);
     } else {
-      this.gameService.addGame(this.gameForm.value),
-        this.gameService.getGames()
-          .then(games => {
-            this.gameService.gameChanged.next(games.slice());
-          });
+      this.gameService.addGame(this.gameForm.value);
     }
     this.onCancel();
   }
+
   onAddPlatform() {
     (<FormArray>this.gameForm.get('platforms')).push(
       new FormGroup({
