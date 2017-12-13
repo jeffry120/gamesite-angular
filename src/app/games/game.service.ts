@@ -106,6 +106,7 @@ export class GameService {
 
 
   addGame(game: Game) {
+    console.log('addGame');
     return this.http.post(this.serverUrl, game, {headers: this.headers})
       .toPromise()
       .then(response => {
