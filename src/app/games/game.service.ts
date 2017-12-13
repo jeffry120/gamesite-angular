@@ -61,7 +61,7 @@ export class GameService {
   }
 
   getCharacters() {
-    return this.http.get(environment.serverUrlCharacter, {headers: this.headers})
+    return this.http.get(environment.serverUrlChar, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.characters = response.json() as Gamecharacter[];
@@ -76,7 +76,7 @@ export class GameService {
   getCharacter(index: string) {
     if (index == null)
       return null;
-    return this.http.get(environment.serverUrlCharacter + index, {headers: this.headers})
+    return this.http.get(environment.serverUrlChar + index, {headers: this.headers})
       .toPromise()
       .then(response => {
         return response.json();
@@ -90,7 +90,7 @@ export class GameService {
   addCharacter(id: string, char: Gamecharacter, game: Game) {
     console.log('addChar')
 
-    return this.http.post(environment.serverUrlCharacter, char, {headers: this.headers})
+    return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
 
@@ -120,7 +120,7 @@ export class GameService {
 
   updateCharacter(id: string, newChar: Gamecharacter) {
     console.log('update');
-    return this.http.put(environment.serverUrlCharacter + id, newChar, {headers: this.headers})
+    return this.http.put(environment.serverUrlChar + id, newChar, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.gameChanged.next(this.games);
