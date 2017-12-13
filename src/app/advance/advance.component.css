@@ -3,7 +3,7 @@
   /*box-shadow: 2px 5px 15px 1px #808080;*/
   -webkit-border-radius: 15px 15px;
   border-radius: 15px 15px;
-  background: -moz-linear-gradient(right, rgba(245,245,245,0.8), rgba(245,245,245,0.8));
+  background: linear-gradient(to right, rgba(245,245,245,0.8), rgba(245,245,245,0.8));
 }
 
 .itemStyle {
