@@ -84,7 +84,7 @@
     <h1>Related Games</h1>
     <ul id="ul">
       <ng-container *ngFor="let gameEl of relGame">
-        <li *ngIf="gameEl._id != game._id"  id="li"><app-rel-game-item
+        <li *appIf="gameEl._id != game._id"  id="li"><app-rel-game-item
           [gameRel]="gameEl">
         </app-rel-game-item></li>
       </ng-container>
