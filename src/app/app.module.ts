@@ -20,14 +20,12 @@ import { GameAddComponent } from "./games/game-add/game-add.component";
 import { CharacterDetailComponent } from "./character/character-detail/character-detail.component";
 import { CharacterItemComponent } from "./character/character-item/character-item.component";
 import {DropdownDirective} from "./shared/dropdown.directive";
+import {RelGameItemComponent} from "./advance/game-related-item/game-rel-item.component";
+import {AppifDirective} from "../appifdirective";
 import {FilterPipe} from "./games/game-list/filter.pipe";
 import {FiltergenrePipe} from "./games/game-list/filtergenre.pipe";
 import {FiltercreatorPipe} from "./games/game-list/filtercreator.pipe";
 import {CharacterAddComponent} from "./games/character-add/character-add.component";
-import {RelGameItemComponent} from "./advance/game-related-item/game-rel-item.component";
-import {AppifDirective} from "../appifdirective";
-
-
 
 
 @NgModule({
@@ -44,12 +42,13 @@ import {AppifDirective} from "../appifdirective";
     CharacterDetailComponent,
     CharacterItemComponent,
     DropdownDirective,
+    RelGameItemComponent,
+    AppifDirective,
     FilterPipe,
     FiltergenrePipe,
     FiltercreatorPipe,
-    CharacterAddComponent,
-    RelGameItemComponent,
-    AppifDirective
+    CharacterAddComponent
+
   ],
   imports: [
     BrowserModule,

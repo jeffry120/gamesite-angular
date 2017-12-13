@@ -7,12 +7,14 @@ import {Gamecharacter} from "./gamecharacter.model";
 
 @Injectable()
 export class GameService {
-  gameChanged = new Subject<Game[]>();
+  gameChanged = new Subject<void>();
+  charChanged = new Subject<void>();
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/games/';
 
   private games: Game[];
+  private game: Game;
   private characters: Gamecharacter[];
 
   constructor(private http: Http) {
@@ -52,6 +54,7 @@ export class GameService {
     return this.http.get(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
+        this.game =  response.json() as Game;
         return response.json();
       })
       .catch(error => {
@@ -93,7 +96,7 @@ export class GameService {
     return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
-
+        this.charChanged.next();
         return response.json() as Gamecharacter;
       })
       .catch(error => {
@@ -106,7 +109,7 @@ export class GameService {
     return this.http.post(this.serverUrl, game, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games);
+        this.gameChanged.next();
       });
   }
 
@@ -114,7 +117,7 @@ export class GameService {
     return this.http.put(this.serverUrl + index, newGame, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games);
+        this.gameChanged.next();
       });
   }
 
@@ -123,7 +126,7 @@ export class GameService {
     return this.http.put(environment.serverUrlChar + id, newChar, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games);
+        this.gameChanged.next();
       });
   }
 
@@ -131,7 +134,7 @@ export class GameService {
     return this.http.delete(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.gameChanged.next(this.games.slice());
+        this.gameChanged.next();
       });
   }
 

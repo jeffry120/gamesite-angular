@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GameService} from '../games/game.service';
 import {Game} from '../games/game.model';
 import {Gamecharacter} from "../games/gamecharacter.model";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-advanced',
@@ -15,6 +16,7 @@ export class AdvancedComponent implements OnInit {
   @Input() gameId: string;
   id: string;
   index: number;
+  subsription: Subscription;
   relGame: Game[];
 
   constructor(private gameService: GameService,
@@ -34,7 +36,22 @@ export class AdvancedComponent implements OnInit {
             .then((res) => this.relGame = res) );
         }
       );
+    this.subsription = this.gameService.charChanged
+      .subscribe(
+        () => {
+          this.gameService.getGame(this.id)
+            .then(() => {
+              this.gameService.getGame(this.id).then(res => {
+                this.game = res;
+              });
+
+            });
+        }
+      );
+
+
   }
+
 
   onGameSelected(character: Gamecharacter) {
     console.log('click');
