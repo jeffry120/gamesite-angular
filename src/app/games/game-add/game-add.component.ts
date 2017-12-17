@@ -35,7 +35,7 @@ export class GameAddComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.idChar = params['charid'];
       this.id = params['id'];
-      this.platforms = ['', 'PS4', 'PC', 'XBOX'];
+      this.platforms = ['PS4', 'PC', 'XBOX'];
       this.platforms2 = ['', 'PS4', 'PC', 'XBOX'];
       this.editMode = params['id'] != null;
       this.initForm();
@@ -127,7 +127,7 @@ export class GameAddComponent implements OnInit {
       'genre': new FormControl(0, Validators.required),
       'description': new FormControl('', Validators.required),
       'platforms': new FormControl('', Validators.required),
-      'platforms2': new FormControl('', Validators.required),
+      'platforms2': new FormControl(''),
       'imagePath': new FormControl('', Validators.required),
       'creators': new FormArray([]),
     });
