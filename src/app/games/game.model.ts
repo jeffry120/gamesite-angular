@@ -6,10 +6,11 @@ export class Game {
   private _name: string;
   private _genre: string;
   private _characters: [object];
-  private _platforms: Platform[];
+  private _platforms: string;
+  private _platforms2: string;
   private _description: string;
   private _imagepath: string;
-  private _creators: string;
+  private _creators: Platform[];
 
   constructor(values: object = {}) {
     Object.assign(this, values);
@@ -23,12 +24,12 @@ export class Game {
     this.id = n;
   }
 
-  public get platforms(): Platform[] {
-    return this._platforms;
+  public get creators(): Platform[] {
+    return this._creators;
   }
 
-  public set platforms(p: Platform[]) {
-    this._platforms = p;
+  public set creators(p: Platform[]) {
+    this._creators = p;
   }
 
   public get characters() {
@@ -55,13 +56,22 @@ export class Game {
     this._genre = n;
   }
 
-  public get creators() {
-    return this._creators;
+  public get platforms() {
+    return this._platforms;
   }
 
-  public set creators(n: string) {
-    this._creators = n;
+  public set platforms(n: string) {
+    this._platforms = n;
   }
+
+  public get platforms2() {
+    return this._platforms;
+  }
+
+  public set platforms2(n: string) {
+    this._platforms = n;
+  }
+
 
   public get description() {
     return this._description;

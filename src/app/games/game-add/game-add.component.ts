@@ -19,6 +19,10 @@ export class GameAddComponent implements OnInit {
   editMode = false;
   gameForm: FormGroup;
   selectedGenre: string;
+  selectedPlatform: string;
+  selectedPlatform2: string;
+  platforms: [string]
+  platforms2: [string]
   characters: Gamecharacter;
   game: Game;
 
@@ -31,12 +35,29 @@ export class GameAddComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.idChar = params['charid'];
       this.id = params['id'];
+      this.platforms = ['', 'PS4', 'PC', 'XBOX'];
+      this.platforms2 = ['', 'PS4', 'PC', 'XBOX'];
       this.editMode = params['id'] != null;
       this.initForm();
       //   this.gameService.getGame(this.id)
       //   .then(games => this.game = games);
       // }
     });
+  }
+
+  changeSelectedType(event: any) {
+    console.log(event); //object, depends on ngValue
+    console.log(this.selectedGenre); //object, depends on ngValue
+  }
+
+  changeSelectedTypePlatform(event: any) {
+    console.log(event); //object, depends on ngValue
+    console.log(this.selectedPlatform); //object, depends on ngValue
+  }
+
+  changeSelectedTypePlatform2(event: any) {
+    console.log(event); //object, depends on ngValue
+    console.log(this.selectedPlatform2); //object, depends on ngValue
   }
 
 
@@ -49,16 +70,16 @@ export class GameAddComponent implements OnInit {
     this.onCancel();
   }
 
-  onAddPlatform() {
-    (<FormArray>this.gameForm.get('platforms')).push(
+  onAddCreator() {
+    (<FormArray>this.gameForm.get('creators')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required)
       })
     );
   }
 
-  onDeletePlatform(index: number) {
-    (<FormArray>this.gameForm.get('platforms')).removeAt(index);
+  onDeleteCreator(index: number) {
+    (<FormArray>this.gameForm.get('creators')).removeAt(index);
   }
 
   onCancel() {
@@ -77,8 +98,8 @@ export class GameAddComponent implements OnInit {
       this.gameService.getGame(this.id)
         .then(game => {
           editgame = game;
-          if (game['platforms']) {
-            for (const platform of game.platforms) {
+          if (game['creators']) {
+            for (const platform of game.creators) {
               GamePlatforms.push(
                 new FormGroup({
                   'name': new FormControl(platform.name, Validators.required)
@@ -92,9 +113,10 @@ export class GameAddComponent implements OnInit {
             'name': new FormControl(editgame.name, Validators.required),
             'genre': new FormControl(editgame.genre, Validators.required),
             'description': new FormControl(editgame.description, Validators.required),
-            'platforms': GamePlatforms,
+            'platforms': new FormControl(editgame.platforms, Validators.required),
+            'platforms2': new FormControl(editgame.platforms),
             'imagePath': new FormControl(editgame.imagePath, Validators.required),
-            'creators': new FormControl(editgame.creators, Validators.required),
+            'creators': GamePlatforms
           });
         })
         .catch(error => console.log(error));
@@ -104,9 +126,10 @@ export class GameAddComponent implements OnInit {
       'name': new FormControl('', Validators.required),
       'genre': new FormControl(0, Validators.required),
       'description': new FormControl('', Validators.required),
-      'platforms': new FormArray([]),
+      'platforms': new FormControl('', Validators.required),
+      'platforms2': new FormControl('', Validators.required),
       'imagePath': new FormControl('', Validators.required),
-      'creators': new FormControl('', Validators.required),
+      'creators': new FormArray([]),
     });
   }
 

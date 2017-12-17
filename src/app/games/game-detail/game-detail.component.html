@@ -48,12 +48,12 @@
 
       <div class="row">
         <div class="col-xs-5">
-          <strong>Game Platforms:</strong>
+          <strong>Creators:</strong>
           <ul class="list-group">
             <li
               class="list-group-item"
-              *ngFor="let platform of game.platforms">
-              {{ platform.name }}
+              *ngFor="let creator of game.creators">
+              {{ creator.name }}
             </li>
           </ul>
         </div>
@@ -61,8 +61,8 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <strong>Creators:</strong>
-          {{ game.creators }}
+          <strong>Platforms:</strong>
+          {{ game.platforms }} {{ game.platforms2 }}
         </div>
       </div>
     </div>

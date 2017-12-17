@@ -66,34 +66,61 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="creators">Creator</label>
-            <input type="text" id="creators" formControlName="creators" class="form-control">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="platforms">Platforms</label>
+              <select type="text"
+                      id="platforms"
+                      formControlName="platforms"
+                      class="form-control"
+                      [(ngModel)]="selectedPlatform"
+                      (ngModelChange)="changeSelectedTypePlatform($event)">
+                <option *ngFor="let type of platforms" [ngValue]="type">{{type.toString()}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="platforms2">Platforms</label>
+              <select type="text"
+                      id="platforms2"
+                      formControlName="platforms2"
+                      class="form-control"
+                      [(ngModel)]="selectedPlatform2"
+                      (ngModelChange)="changeSelectedTypePlatform2($event)">
+                <option *ngFor="let type of platforms2" [ngValue]="type">{{type.toString()}}</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xs-12" formArrayName="platforms">
-          <label>Platforms</label>
+        <div class="col-xs-12" formArrayName="creators">
+          <label>Creators</label>
           <!-- Oorspronkelijk: <div class="row" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i" -->
-          <div class="row" *ngFor="let platformCtrl of gameForm['controls'].platforms['controls']; let i = index" [formGroupName]="i"
+          <div class="row" *ngFor="let platformCtrl of gameForm['controls'].creators['controls']; let i = index" [formGroupName]="i"
                style="margin-top: 10px;">
             <!-- De volgende regel voeg je ook toe -->
-            <pre *ngIf="platformCtrl">{{ platformCtrl.value | json }}</pre>
+            <!--<pre *ngIf="platformCtrl">{{ platformCtrl.value | json }}</pre>-->
             <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name" placeholder="Platform name">
+              <input type="text" class="form-control" formControlName="name" placeholder="Creator name">
             </div>
             <div class="col-xs-2">
-              <button type="button" class="btn btn-danger" (click)="onDeletePlatform(i)">X</button>
+              <button type="button" class="btn btn-danger" (click)="onDeleteCreator(i)">X</button>
             </div>
           </div>
           <hr>
           <div class="row">
             <div class="col-xs-12">
-              <button type="button" class="btn btn-success" (click)="onAddPlatform()">Add Platform</button>
+              <button type="button" class="btn btn-success" (click)="onAddCreator()">Add Creator</button>
             </div>
           </div>
           <br/>
